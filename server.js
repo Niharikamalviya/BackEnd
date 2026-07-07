@@ -26,5 +26,17 @@ app.post('/api/cars', (req, res) => {
     console.log(brand);
     res.send("car submit successfully")
 
-}
-)
+
+})
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/cars')
+
+    .then(() => {
+        console.log("connection successfully")
+
+    })
+    .catch((error) => {
+        console.log(error)
+
+    });
