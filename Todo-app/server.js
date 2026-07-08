@@ -15,7 +15,6 @@ app.use(express.json());
 
 const todoRoutes = require("./routes/todos");
 
-//mount the todo API routes
 
 app.use("/api/V1", todoRoutes);
 
