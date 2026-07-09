@@ -1,14 +1,11 @@
-const Todo = require("../models/Todo");
+const Blog = require("../models/blogs");
 
-//define route handler
+exports.createBlog = async (req, res) => {
 
-exports.createTodo = async (req, res) => {
     try {
-        //extract title and description from requested body
-        const { title, description } = req.body;
-        // create  a new Todo obj and insert in DB
-        const response = await Todo.create({ title, description });
-        //send a json response with a success  flag
+        const { title, content, author, tags, views, likes, comments } = req.body;
+
+        const response = await Blog.create({ title, content, author, tags, views, likes, comments });
 
         res.status(200).json(
             {
@@ -21,6 +18,7 @@ exports.createTodo = async (req, res) => {
 
 
     }
+
     catch (err) {
         console.error(err);
         console.log(err);
