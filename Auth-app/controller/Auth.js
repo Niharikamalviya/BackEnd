@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const JWT = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 require("dotenv").config();
 
@@ -16,7 +16,7 @@ exports.signup = async (req, res) => {
         if (existingUser) {
             return res.status(400).json({
                 success: false,
-                message: "user already Existss",
+                message: "user already Exists",
 
             });
 
@@ -85,7 +85,7 @@ exports.login = async (req, res) => {
         if (!user) {
             return res.status(401).json({
                 success: false,
-                meassage: "user not found"
+                message: "user not found"
             });
         }
 
@@ -104,7 +104,7 @@ exports.login = async (req, res) => {
 
                 });
 
-            user.token = tekon;
+            user.token = token;
             user.password = undefined;
             const options = {
                 expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
