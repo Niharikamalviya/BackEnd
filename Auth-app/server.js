@@ -6,9 +6,11 @@ const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
 
-require("./config/database").connect();
+const dbConnect = require("./config/database");
+dbConnect();
 
-const user = require("./route/user");
+
+const user = require("./routes/user");
 app.use("/api/V1", user);
 
 app.listen(PORT, () => {
