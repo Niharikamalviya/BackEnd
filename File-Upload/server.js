@@ -19,12 +19,12 @@ const db = require("./config/database");
 db.connect();
 
 //cloud se coonect
-const cloudiinary = require("./config/cloudinary");
-cloudinary.cloudinaryConnnect();
+const cloudinary = require("./config/cloudinary");
+cloudinary.cloudinaryConnect();
 
 // api route
 const Upload = require("./routes/fileupload");
-app.use("api/v1/upload", Upload);
+app.use("/api/v1/upload", Upload);
 
 //activate server
 
